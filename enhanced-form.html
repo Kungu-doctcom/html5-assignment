@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enhanced HTML5 Content & Form</title>
+  <style>
+    /* Minimal styling to make the layout clear and readable */
+    :root { font-family: system-ui,Segoe UI,Roboto,Arial; line-height: 1.4; }
+    body { max-width: 900px; margin: 28px auto; padding: 0 18px; }
+    header, footer { text-align: center; margin-bottom: 18px; }
+    section { margin: 20px 0; padding: 12px; border-radius: 8px; background:#fafafa; }
+    table { border-collapse: collapse; width:100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    figure { margin: 0 0 12px 0; }
+    form { max-width: 100%; }
+    fieldset { border: 1px solid #ccc; padding: 12px; margin-bottom: 12px; }
+    legend { font-weight: 600; }
+    label { display:block; margin-bottom:6px; font-size:0.95rem; }
+    input, select, textarea { width:100%; padding:8px; margin-bottom:12px; box-sizing:border-box; }
+    .two-cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px; }
+    .small { width:auto; display:inline-block; }
+    .actions { display:flex; gap:8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML5 Demo — Lists, Tables, Media & A Complete Form</h1>
+    <p>Single file: <code>enhanced-form.html</code> — demonstrates semantic structure and native HTML5 validation.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="features-title">
+      <h2 id="features-title">Features (lists)</h2>
+      <p>Key features demonstrated here:</p>
+      <ul>
+        <li>Semantic page structure (header, main, section, footer)</li>
+        <li>Lists and tables to organize content</li>
+        <li>Embedded media (image, audio, video)</li>
+        <li>HTML5 form with many input types and built-in validation</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="compare-title">
+      <h2 id="compare-title">Comparison (table)</h2>
+      <table>
+        <caption>HTML4 vs HTML5 (short)</caption>
+        <thead>
+          <tr><th>Area</th><th>HTML4</th><th>HTML5</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Forms</td><td>Few input types</td><td>Many input types & validation</td></tr>
+          <tr><td>Media</td><td>No built-in media</td><td>&lt;audio&gt; &lt;video&gt;</td></tr>
+          <tr><td>Semantics</td><td>Limited</td><td>&lt;header&gt; &lt;section&gt; &lt;article&gt;</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="media-title">
+      <h2 id="media-title">Media demo</h2>
+      <figure>
+        <img src="https://via.placeholder.com/600x240.png?text=Sample+Image" alt="Placeholder sample">
+        <figcaption>Figure: placeholder image (replace with your own if needed)</figcaption>
+      </figure>
+
+      <p>Audio (if you add a file in the folder, update the <code>src</code>):</p>
+      <audio controls>
+        <!-- Replace sample.mp3 with a local file path if you have one -->
+        <source src="sample.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <p>Video (replace with a real file or remote URL if available):</p>
+      <video controls width="480">
+        <source src="sample.mp4" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+    </section>
+
+    <section aria-labelledby="form-title">
+      <h2 id="form-title">Complete Registration Form</h2>
+      <form action="#" method="post" autocomplete="on">
+        <!-- NOTE: remove `novalidate` if you want browser validation. It's present here to demonstrate attributes visually.
+             When testing native HTML5 validation, delete the novalidate attribute. -->
+        <input type="hidden" name="assignmentId" value="html5-001">
+
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div class="two-cols">
+            <div>
+              <label for="fullname">Full name</label>
+              <input id="fullname" name="fullname" type="text" required minlength="3" placeholder="Jane Doe" autocomplete="name" />
+            </div>
+
+            <div>
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email" />
+            </div>
+
+            <div>
+              <label for="phone">Phone (E.164 / local)</label>
+              <input id="phone" name="phone" type="tel" placeholder="+254712345678" pattern="^\+?\d{7,15}$" aria-describedby="phoneHelp" autocomplete="tel" />
+              <small id="phoneHelp">Format: +countrycode and digits (7–15 digits).</small>
+            </div>
+
+            <div>
+              <label for="birth">Date of birth</label>
+              <input id="birth" name="birth" type="date" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Account details</legend>
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" required minlength="5" pattern="^[A-Za-z0-9._-]{5,20}$" placeholder="user123" autocomplete="username" />
+
+          <div class="two-cols">
+            <div>
+              <label for="password">Password</label>
+              <!-- Pattern ensures at least 8 chars, one uppercase, one lowercase, one digit -->
+              <input id="password" name="password" type="password" required minlength="8" pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*" title="Minimum 8 characters, include upper & lower case and a number" autocomplete="new-password" />
+            </div>
+
+            <div>
+              <label for="accountId">Account ID (read only)</label>
+              <input id="accountId" name="accountId" type="text" value="REF-HTML5-001" readonly aria-readonly="true" class="small" />
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preferences & extra info</legend>
+          <label for="website">Personal website</label>
+          <input id="website" name="website" type="url" placeholder="https://example.com" autocomplete="url" />
+
+          <label for="color">Favorite color</label>
+          <input id="color" name="color" type="color" value="#0066cc" />
+
+          <label for="role">Role (choose or type)</label>
+          <input id="role" name="role" list="roles" placeholder="Select or type">
+          <datalist id="roles">
+            <option value="Student">
+            <option value="Designer">
+            <option value="Developer">
+            <option value="Manager">
+          </datalist>
+
+          <label for="resume">Upload a profile image (optional)</label>
+          <input id="resume" name="resume" type="file" accept="image/*" aria-describedby="fileHelp" />
+          <small id="fileHelp">PNG/JPG only. Max size: check your server rules (client-side can't enforce file size reliably).</small>
+
+          <label for="rating">How do you rate this demo?</label>
+          <input id="rating" name="rating" type="range" min="0" max="10" value="7" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Confirm & Submit</legend>
+          <label>
+            <input type="checkbox" name="terms" required /> I confirm the information is correct (required)
+          </label>
+
+          <div class="actions" style="margin-top:10px;">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+          </div>
+        </fieldset>
+      </form>
+      <p><em>Note:</em> password confirmation-match would require JS; HTML5 handles length, pattern, type, required, min/max, and more.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2025</span> — HTML5 Assignment</p>
+  </footer>
+</body>
+</html>

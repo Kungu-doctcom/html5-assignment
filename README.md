@@ -1,16 +1,38 @@
-# HTML5 Assignment — Enhanced Form
+# 🎨 CSS Basics & The Box Model Assignment
 
-This project demonstrates:
+This project is part of my **Web Development course**.  
+The goal of the assignment was to practice **CSS fundamentals** and demonstrate understanding of the **Box Model** (margins, padding, borders, and spacing).
 
-- Using lists, tables, and media (images, audio, video)
-- Building a complete HTML5 form with labels, fieldsets, and validation
-- Applying HTML5 attributes like required, minlength, pattern, and autocomplete
-- Relying on **native HTML5 validation** (no JavaScript)
+---
 
-## How to run
-1. Open `enhanced-form.html` in VS Code.
-2. Right-click and choose **Open with Live Server** (or click **Go Live** button).
-3. Try filling in the form to see HTML5 validation in action.
+## 📌 Project Overview
+- A simple web page styled using **only HTML and CSS** (no JavaScript or frameworks).
+- Demonstrates the **Box Model** using:
+  - Margins
+  - Padding
+  - Borders
+  - Background colors
+- Includes a styled header, text sections, and a button.
 
-## Repository
-[GitHub Repo Link](https://github.com/Kungu-doctcom/html5-assignment)
+---
+
+## 🗂️ Files
+- **index.html** → Main HTML file with structured content.  
+- **styles.css** → External stylesheet with all CSS rules.  
+- **README.md** → Documentation for the project.  
+
+---
+
+## ✨ Features
+- Responsive page structure with external CSS.  
+- Clear usage of **margins, padding, and borders**.  
+- Simple but professional design.  
+- Organized, readable code with proper indentation.  
+
+---
+
+## 🚀 How to Run
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Kungu-doctcom/html5-assignment.git
+
